@@ -14,6 +14,8 @@ class Task {
     this.priority = priority
     this.#completed = false;
     this.#minuteSpent = 0;
+
+    Task.allTasks.push(this)
   }
   get completed() {
     return this.#completed;
@@ -39,10 +41,10 @@ class Task {
   }
 
   static getTotalTasks() {
-    return this.allTasks.length
+    return Task.allTasks.length
   }
   static findByTitle(title) {
-    return this.allTasks
+    return Task.allTasks.find(tasks => tasks.title === title)
   }
 }
 
